@@ -42,3 +42,45 @@ htmlcov/
 .codegraph
 /docs/superpowers
 .understand-anything
+
+# ============================================================
+# Local secrets and generated artifacts — never commit
+# ============================================================
+
+# API credentials. Upstream already ignores /config.toml at the repo root;
+# these catch variants and any nested copy.
+config.toml
+config.toml.bak
+config.local.toml
+**/config.toml
+*.secrets.toml
+secrets.toml
+
+# Environment files (upstream had no rule for these)
+.env
+.env.*
+*.env
+!.env.example
+!.env.template
+
+# Generic key material
+*.pem
+*.key
+*.ppk
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+*_credentials.json
+apikey*
+api_key*
+
+# Generated videos and task output. Upstream's /storage/ already covers
+# storage/tasks; kept explicit so the intent survives edits to that line.
+/storage/
+storage/tasks/
+storage/local_videos/
+storage/bgm/
+
+# Skill/agent run logs (may echo prompts and file paths)
+.agent-logs/
